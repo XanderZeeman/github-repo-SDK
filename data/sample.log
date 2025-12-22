@@ -1,0 +1,6 @@
+INFO Service started
+INFO Connection established
+WARN High latency detected
+INFO Request processed
+ERROR Failed to write response
+INFO Service stopped
