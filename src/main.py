@@ -1,5 +1,7 @@
 import sys
 
+LOG_LEVELS = ["INFO", "WARN", "ERROR"]
+
 if len(sys.argv) < 2:
     print("Usage: python3 src/main.py <path_to_log_file>")
     sys.exit(1)
@@ -8,18 +10,14 @@ log_path = sys.argv[1]
 
 
 def analyze_log(file_path):
-    summary = {
-        "INFO": 0,
-        "WARN": 0,
-        "ERROR": 0,
-        "TOTAL": 0
-    }
+    summary = {level: 0 for level in LOG_LEVELS}
+    summary["TOTAL"] = 0
 
     try:
         with open(file_path, "r") as file:
             for line in file:
                 summary["TOTAL"] += 1
-                for level in ("INFO", "WARN", "ERROR"):
+                for level in LOG_LEVELS:
                     if line.startswith(level):
                         summary[level] += 1
 
