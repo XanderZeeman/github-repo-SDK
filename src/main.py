@@ -1,3 +1,12 @@
+import sys
+
+if len(sys.argv) < 2:
+    print("Usage: python script.py <path_to_log_file>")
+    sys.exit(1)
+
+log_path = sys.argv[1]
+
+
 def analyze_log(file_path):
     summary = {
         "INFO": 0,
@@ -12,7 +21,7 @@ def analyze_log(file_path):
             for level in ("INFO", "WARN", "ERROR"):
                 if line.startswith(level):
                     summary[level] += 1
-                    
+
     return summary
 
 def print_summary(summary):
