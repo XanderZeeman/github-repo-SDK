@@ -15,12 +15,18 @@ def analyze_log(file_path):
         "TOTAL": 0
     }
 
-    with open(file_path, "r") as file:
-        for line in file:
-            summary["TOTAL"] += 1
-            for level in ("INFO", "WARN", "ERROR"):
-                if line.startswith(level):
-                    summary[level] += 1
+    try:
+        with open(file_path, "r") as file:
+            for line in file:
+                summary["TOTAL"] += 1
+                for level in ("INFO", "WARN", "ERROR"):
+                    if line.startswith(level):
+                        summary[level] += 1
+
+        return summary
+    except FileNotFoundError:
+        print(f"Error: log file not found -> {file_path}")
+        sys.exit(1)
 
     return summary
 
