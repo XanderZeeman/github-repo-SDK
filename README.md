@@ -18,5 +18,5 @@ This project is a lightweight Python tool designed to analyze structured or semi
 ## How to Run
 
 ```bash
-python src/main.py
+python3 src/main.py
 

@@ -1,7 +1,7 @@
 import sys
 
 if len(sys.argv) < 2:
-    print("Usage: python script.py <path_to_log_file>")
+    print("Usage: python3 src/main.py <path_to_log_file>")
     sys.exit(1)
 
 log_path = sys.argv[1]
@@ -34,6 +34,5 @@ def print_summary(summary):
 
 
 if __name__ == "__main__":
-    log_file = "data/sample.log"
-    result = analyze_log(log_file)
+    result = analyze_log(log_path)
     print_summary(result)
