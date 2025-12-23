@@ -1,4 +1,5 @@
 import sys
+import json
 
 LOG_LEVELS = ["INFO", "WARN", "ERROR"]
 
@@ -7,6 +8,8 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 log_path = sys.argv[1]
+output_json = "--json" in sys.argv
+
 
 
 def analyze_log(file_path):
@@ -28,15 +31,22 @@ def analyze_log(file_path):
 
     return summary
 
+def print_summary_json(summary):
+    print(json.dumps(summary, indent=2))
+
 def print_summary(summary):
     print("Log Summary")
     print("-----------")
-    print(f"Total entries: {summary['TOTAL']}")
-    print(f"INFO: {summary['INFO']}")
-    print(f"WARN: {summary['WARN']}")
-    print(f"ERROR: {summary['ERROR']}")
+    for level in LOG_LEVELS:
+        print(f"{level}: {summary[level]}")
+    print("-----------")    
+    print(f"TOTAL: {summary['TOTAL']}")
 
 
 if __name__ == "__main__":
     result = analyze_log(log_path)
+
+if output_json:
+    print_summary_json(result)
+else:
     print_summary(result)
