@@ -43,10 +43,13 @@ def print_summary(summary):
     print(f"TOTAL: {summary['TOTAL']}")
 
 
-if __name__ == "__main__":
+def main():
     result = analyze_log(log_path)
 
-if output_json:
-    print_summary_json(result)
-else:
-    print_summary(result)
+    if output_json:
+        print_summary_json(result)
+    else:
+       print_summary(result)
+
+if __name__ == "__main__":
+    main()
