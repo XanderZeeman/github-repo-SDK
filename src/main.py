@@ -25,8 +25,13 @@ def analyze_log(file_path):
                         summary[level] += 1
 
         return summary
+    
     except FileNotFoundError:
-        print(f"Error: log file not found -> {file_path}")
+        print(f"Error: File not found → {file_path}")
+        sys.exit(1)
+
+    except PermissionError:
+        print(f"Error: Permission denied → {file_path}")
         sys.exit(1)
 
     return summary
