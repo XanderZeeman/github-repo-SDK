@@ -38,12 +38,14 @@ python3 src/main.py data/sample.log
 
 ## Output
 
+```
 Log Summary
 -----------
 TOTAL: 4
 INFO: 2
 WARN: 1
 ERROR: 1
+```
 
 ## Project Structure
 
