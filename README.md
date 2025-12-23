@@ -9,10 +9,11 @@ This project was built to practice writing clean, user-facing Python utilities w
 ## Features
 
 - Parses log files line-by-line
-- Counts INFO, WARN, and ERROR entries, with convenient steps to make changes
+- Counts INFO, WARN, and ERROR entries, with support for configurable log levels
 - Provides a clear summary of log activity
 - Handles missing or inaccessible files gracefully
 - Designed for clarity and extensibility
+- Optional JSON output
 
 ---
 
@@ -48,8 +49,13 @@ ERROR: 1
 
 .
 ├── src/
+
 │   └── main.py
+
 ├── data/
+
 │   └── sample.log
+
 ├── .gitignore
+
 └── README.md
